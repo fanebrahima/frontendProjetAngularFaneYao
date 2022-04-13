@@ -1,0 +1,188 @@
+  <!-- [ Pre-loader ] start -->
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+	<!-- [ Pre-loader ] End -->
+
+	<!-- [ navigation menu ] start -->
+  <nav class="pcoded-navbar menupos-fixed menu-light brand-blue ">
+    <div class="navbar-wrapper ">
+        <div class="navbar-brand header-logo">
+            <a href="index.html" class="b-brand">
+              <img src="../assets/images/logo.svg" alt="" class="logo images">
+              <img src="../assets/images/logo-icon.svg" alt="" class="logo-thumb images">
+            </a>
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+        </div>
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navigation</label>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/home"><span class="pcoded-micon"><i class="fas fa-tachometer-alt"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/add"><span class="pcoded-micon"><i class="fas fa-journal-whills"></i></span><span class="pcoded-mtext">Ajouter un assignment</span></a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/assignment/list"><span class="pcoded-micon"><i class="fas fa-journal-whills"></i></span><span class="pcoded-mtext">Lister les assignments</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <!-- [ navigation menu ] end -->
+
+  <!-- [ Header ] start -->
+  <header class="navbar pcoded-header navbar-expand-lg navbar-light headerpos-fixed">
+    <div class="m-header">
+        <a class="mobile-menu" id="mobile-collapse1" href="#!"><span></span></a>
+        <a href="index.html" class="b-brand">
+          <img src="../assets/images/logo.svg" alt="" class="logo images">
+        </a>
+    </div>
+    <a class="mobile-menu" id="mobile-header" href="#!">
+        <i class="feather icon-more-horizontal"></i>
+    </a>
+    <div class="collapse navbar-collapse">
+        <a href="#!" class="mob-toggler"></a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <div class="main-search open">
+
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li>
+                <div class="dropdown drp-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right profile-notification">
+                        <div class="pro-head">
+                          <img class="img-radius" src="../assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+                            <span>
+                                FANE
+                            </span>
+                        </div>
+                        <ul class="pro-body">
+                            <li><a href="#!"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a></li>
+                            <li><a href="#!" class="dropdown-item"><i class="fas fa-user"></i> Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+  </header>
+  <!-- [ Header ] end -->
+
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+
+                        <!-- [ Main Content ] start -->
+                        <div class="row">
+                          <div class="col-md-1"></div>
+                          <div class="col-md-10">
+                            
+                            <!--
+                              La ligne suivante permet d'afficher le composant qui correspond à l'URL (en fonction des routes)
+                            -->
+                            <main class="container">
+                              <div>
+                                <div class="col-xl-12 col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a class="home btn btn-danger mb-4" routerLink="/home"><i class="fas fa-home"></i>Accueil</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a routerLink="/add">
+                                                <button class="btn btn-primary mb-4" ><i class="fas fa-plus"></i>Ajouter un assignment</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-xl-12 col-md-12">
+                                    <div class="card table-card">
+                                        <div class="card-header">
+                                            <h5>Liste des assignments</h5>
+                                        </div>
+                                        <div class="card-body px-0 py-0 text-center">
+                                            <div class="table-responsive">
+                                                <div class="session-scroll" style="height:478px;position:relative;">
+                                                    <table class="table table-hover m-b-0" id="DataTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th><span>#</span></th>
+                                                                <th>Nom</th>
+                                                                <th>Rôle</th>
+                                                                <th>Rendu</th>
+                                                                <th><span>Action</span></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr *ngFor="let assignment of assignments; let i=index">
+                                                                    <td>{{assignment.id}}</td>
+                                                                    <td>{{assignment.nom}}</td>
+                                                                    <td>{{assignment.dateDeRendu | date}}</td>
+                                                                    <td [ngStyle]="{'color': assignment.rendu ? 'green' : 'red'}">{{assignment.rendu}}</td>
+                                                                    <td>
+                                                                        <a routerLink="/assignment/{{assignment.id}}"><button class="btn btn-primary mb-4"><i class="fas fa-info-circle"></i>Voir</button></a>
+                                                                        <a routerLink="/assignment/{{assignment.id}}/edit"><button class="btn btn-info mb-4" [disabled]="!isAdmin()"><i class="fas fa-edit"></i>Editer</button></a>
+                                                                        <button class="btn btn-danger mb-4" *ngIf="assignmentTransmis" [disabled]="!isAdmin()" (click)="onDeleteAssignment()"><i class="fas fa-trash-alt"></i>Supprimer</button>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                              <div class="pagination pagination-sm justify-content-end">
+                                <div>
+                                    <label>Nb assignments par page :</label>
+                                    <input type="range" min=5 max="100"  [(ngModel)]="limit" (change)="getAssignments()"> 
+                                    {{limit}}
+                                </div>
+                                <p>Nombre de page total : {{totalPages}},
+                                    Nombre d'assignments : {{totalDocs}},
+                                    Page courante : {{(page -1) * limit + 1}} - {{page * limit}}
+                                    sur {{totalDocs}}</p>
+                                <button mat-stroked-button color="basic" (click)="premierePage()" [disabled]="page===1"><span>I<</span></button>
+                                <button mat-stroked-button color="basic" (click)="pagePrecedente()" [disabled]="!hasPrevPage"><</button>
+                                <button mat-raised-button color="primary" (click)="pagePrecedente()">{{page}}</button>
+                                <button mat-stroked-button color="basic" (click)="pageSuivante()" [disabled]="!hasNextPage">></button>
+                                <button mat-stroked-button color="basic" (click)="dernierePage()" [disabled]="page===totalPages"><span>>I</span></button>
+                              </div>
+                              </main>
+                          </div>      
+                          <div class="col-md-1"></div>                    
+                        </div>
+                        <!-- [ Main Content ] end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- [ Main Content ] end -->
+
+
+
+
+  

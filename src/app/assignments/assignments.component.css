@@ -1,0 +1,41 @@
+.rendu
+{
+  color:green;
+}
+
+.nonRendu {
+  color:red;
+  border: 2px dashed orange;
+  background-color:lightgrey;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ajouterBtn {
+  margin-top: 30px;
+  align-self: flex-end;
+}
+
+.pagination {
+  display:flex;
+  align-content: space-between;
+}
+
+.mat-column-nom {
+  padding-left: 16px;
+  font-size: 20px;
+  color:red;
+}
+
+.mat-column-dateDeRendu {
+  padding-left: -10px;
+  font-size: 20px;
+  color:orange;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
