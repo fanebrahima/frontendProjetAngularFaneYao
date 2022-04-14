@@ -5242,7 +5242,6 @@ body.layout-1 .pcoded-navbar.active-dark .sidemenu li.active:after {
     color: #fff;
     text-align: center;
     padding-top: 45px;
-    background-image: url("../images/widget/blur-bg.png");
     background-size: cover;
 }
 
@@ -7069,7 +7068,6 @@ table.dataTable tbody > tr.selected td.select-checkbox:after, table.dataTable tb
 
 /* image varient start */
 .aut-bg-img {
-    background-image: url("../images/auth-bg-big.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
