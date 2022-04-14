@@ -7091,7 +7091,6 @@ table.dataTable tbody > tr.selected td.select-checkbox:after, table.dataTable tb
 }
 
 .blur-bg-images {
-    background-image: url("../images/auth/blur-bg.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
