@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  email!: string;
+  username!: string;
   password!: string;
 
   constructor(private authService:AuthService,
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   login(event: MouseEvent): void {
     event.preventDefault();
     if (!this.authService.loggedIn) {
-      this.authService.logIn(this.email!, this.password!);
+      this.authService.logIn(this.username!, this.password!);
     } else {
       // this.authService.logOut();
       this.router.navigate(['/home']);

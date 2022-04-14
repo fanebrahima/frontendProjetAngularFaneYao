@@ -40,13 +40,4 @@ export class AddAssignmentComponent implements OnInit {
     })
   }
 
-  peuplerBD() {
-    this.assignmentsService.peuplerBDAvecForkJoin()
-    .subscribe(() => {
-      console.log("TOUS LES AJOUTS ONT ETE REALISES");
-      // on peut alors afficher la liste
-      this.router.navigate(["/home"]);
-    })
-  }
-
 }

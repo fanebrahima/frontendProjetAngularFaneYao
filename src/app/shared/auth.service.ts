@@ -12,8 +12,8 @@ export class AuthService {
   constructor(private httpClient: HttpClient,
     private router: Router) { }
 
-  logIn(email: string, password: string): void {
-    this.httpClient.post<{ token: string }>(this.url, {email: email.toString(), password: password.toString()})
+  logIn(username: string, password: string): void {
+    this.httpClient.post<{ token: string }>(this.url, {username: username.toString(), password: password.toString()})
       .subscribe(res => {
         if (res.token !== undefined) {
           localStorage.setItem('token', res.token);

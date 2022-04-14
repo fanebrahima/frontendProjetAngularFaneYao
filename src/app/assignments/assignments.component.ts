@@ -24,9 +24,6 @@ export class AssignmentsComponent implements OnInit {
   prevPage?: number;
   hasNextPage?: boolean;
   nextPage?: number;
-  email!: string;
-  password!: string;
-
 
   constructor(private assignmentsService: AssignmentsService,
               private authService:AuthService,
@@ -80,15 +77,6 @@ export class AssignmentsComponent implements OnInit {
   dernierePage() {
     this.page = this.totalPages;
     this.getAssignments();
-  }
-
-  peuplerBD() {
-    this.assignmentsService.peuplerBDAvecForkJoin()
-    .subscribe(() => {
-      console.log("TOUS LES AJOUTS ONT ETE REALISES");
-      // on peut alors afficher la liste
-      this.router.navigate(["/home"]);
-    })
   }
 
 }

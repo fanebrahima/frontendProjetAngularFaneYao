@@ -12,7 +12,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="feather icon-mail"></i></span>
                                 </div>
-                                <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="Adresse Email">
+                                <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="Nom d'utilisateur">
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -35,7 +35,7 @@
 					</div>
 				</div>
 				<div class="col-md-6 d-none d-md-block">
-					<img src="../assets/images/auth-bg.jpg" alt="" class="img-fluid">
+					<img [src]="'../assets/images/auth-bg.jpg'" alt="" class="img-fluid">
 				</div>
 			</div>
 		</div>

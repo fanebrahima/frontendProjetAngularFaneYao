@@ -33,6 +33,7 @@ import { EditAssignmentComponent } from './edit-assignment/edit-assignment.compo
 import { AuthGuard } from './shared/auth.guard';
 import { ListAssignmentComponent } from './assignments/list-assignment/list-assignment.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './template/header/header.component';
 
 const routes:Routes = [
   {
@@ -54,13 +55,11 @@ const routes:Routes = [
   },
   {
     path: "assignment/list",
-    component:ListAssignmentComponent,
-    canActivate:[AuthGuard]
+    component:ListAssignmentComponent
   },
   {
     path: "assignment/:id",
-    component:AssignmentDetailComponent,
-    canActivate:[AuthGuard]
+    component:AssignmentDetailComponent
   },
   {
     path: "assignment/:id/edit",
@@ -77,7 +76,8 @@ const routes:Routes = [
     AddAssignmentComponent,
     EditAssignmentComponent,
     ListAssignmentComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

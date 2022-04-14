@@ -83,15 +83,6 @@ export class ListAssignmentComponent implements OnInit {
     this.getAssignments();
   }
 
-  peuplerBD() {
-    this.assignmentsService.peuplerBDAvecForkJoin()
-    .subscribe(() => {
-      console.log("TOUS LES AJOUTS ONT ETE REALISES");
-      // on peut alors afficher la liste
-      this.router.navigate(["/home"]);
-    })
-  }
-
   onDeleteAssignment() {
     if (this.assignmentTransmis) {
       this.assignmentsService
