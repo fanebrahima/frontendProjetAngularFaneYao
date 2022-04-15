@@ -46,7 +46,8 @@ const routes:Routes = [
   },
   {
     path: "home",
-    component:AssignmentsComponent
+    component:AssignmentsComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "add",
@@ -55,11 +56,13 @@ const routes:Routes = [
   },
   {
     path: "assignment/list",
-    component:ListAssignmentComponent
+    component:ListAssignmentComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "assignment/:id",
-    component:AssignmentDetailComponent
+    component:AssignmentDetailComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: "assignment/:id/edit",
