@@ -38,6 +38,14 @@
                                         <div class="card-header">
                                             <h5>Liste des assignments</h5>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-md-6"></div>
+                                            <div class="col-md-6">
+                                                <label>Nombre d'assignments par page :&nbsp;&nbsp;</label>
+                                                <input type="range" min=5 max="100"  [(ngModel)]="limit" (change)="getAssignments()"> 
+                                                {{limit}}
+                                            </div>
+                                        </div>
                                         <div class="card-body px-0 py-0 text-center">
                                             <div class="table-responsive">
                                                 <div class="session-scroll" style="height:478px;position:relative;">
@@ -72,11 +80,6 @@
                             </div>
 
                               <div class="pagination pagination-sm justify-content-end">
-                                <div>
-                                    <label>Nombre d'assignments par page :&nbsp;&nbsp;</label>
-                                    <input type="range" min=5 max="100"  [(ngModel)]="limit" (change)="getAssignments()"> 
-                                    {{limit}} 
-                                </div>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <p>{{(page -1) * limit + 1}} - {{page * limit}} sur {{totalDocs}}&nbsp;&nbsp;&nbsp;&nbsp;</p>
                                 <button mat-stroked-button color="basic" (click)="premierePage()" [disabled]="page===1"><span>I<</span></button>
                                 <button mat-stroked-button color="basic" (click)="pagePrecedente()" [disabled]="!hasPrevPage"><</button>
