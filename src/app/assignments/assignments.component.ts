@@ -19,6 +19,7 @@ export class AssignmentsComponent implements OnInit {
   page: number=1;
   limit: number=5;
   totalDocs: number=0;
+  totalDocsRendu: number=0;
   totalPages: number=0;
   hasPrevPage?: boolean;
   prevPage?: number;
@@ -46,6 +47,7 @@ export class AssignmentsComponent implements OnInit {
       this.page = data.page;
       this.limit = data.limit;
       this.totalDocs = data.totalDocs;
+      this.totalDocsRendu = data.totalDocs - 159;
       this.totalPages = data.totalPages;
       this.hasPrevPage = data.hasPrevPage;
       this.prevPage = data.prevPage;

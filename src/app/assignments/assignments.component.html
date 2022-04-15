@@ -33,7 +33,7 @@
                               <div class="row">
                                   <!-- product profit start -->
                                   <div class="col-xl-4 col-md-6">
-                                      <div class="card prod-p-card bg-c-red">
+                                      <div class="card prod-p-card bg-c-blue">
                                           <div class="card-body">
                                               <div class="row align-items-center m-b-25">
                                                   <div class="col">
@@ -49,34 +49,34 @@
                                       </div>
                                   </div>
                                   <div class="col-xl-4 col-md-6">
-                                      <div class="card prod-p-card bg-c-blue">
-                                          <div class="card-body">
-                                              <div class="row align-items-center m-b-25">
-                                                  <div class="col">
-                                                      <h6 class="m-b-5 text-white"></h6>
-                                                      <h3 class="m-b-0 text-white">6</h3>
-                                                  </div>
-                                                  <div class="col-auto">
-                                                      <i class="fas fa-bullhorn"></i>
-                                                  </div>
-                                              </div>
-                                              <h3 class="m-b-0 text-white">Assignments</h3>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-xl-4 col-md-6">
                                       <div class="card prod-p-card bg-c-green">
                                           <div class="card-body">
                                               <div class="row align-items-center m-b-25">
                                                   <div class="col">
                                                       <h6 class="m-b-5 text-white"></h6>
-                                                      <h3 class="m-b-0 text-white">7</h3>
+                                                      <h3 class="m-b-0 text-white">{{totalDocsRendu}}</h3>
+                                                  </div>
+                                                  <div class="col-auto">
+                                                      <i class="fas fa-bullhorn"></i>
+                                                  </div>
+                                              </div>
+                                              <h3 class="m-b-0 text-white">Assignments rendus</h3>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-xl-4 col-md-6">
+                                      <div class="card prod-p-card bg-c-red">
+                                          <div class="card-body">
+                                              <div class="row align-items-center m-b-25">
+                                                  <div class="col">
+                                                      <h6 class="m-b-5 text-white"></h6>
+                                                      <h3 class="m-b-0 text-white">{{totalDocs - totalDocsRendu}}</h3>
                                                   </div>
                                                   <div class="col-auto">
                                                       <i class="fas fa-journal-whills"></i>
                                                   </div>
                                               </div>
-                                              <h3 class="m-b-0 text-white">Assignments</h3>
+                                              <h3 class="m-b-0 text-white">Assignments non rendus</h3>
                                           </div>
                                       </div>
                                   </div>
