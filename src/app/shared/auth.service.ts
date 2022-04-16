@@ -1,33 +1,42 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   loggedIn = false;
-  url = 'https://app-assignment-api.herokuapp.com/api/login';
+  currentUser: { password: string; isAdmin: boolean; username: string }[] = [
+    {username: '', password: '', isAdmin: false}
+  ];
+  users: Array<{username: string, password: string, isAdmin: boolean}> = [
+    {username: 'test', password: '1234', isAdmin: true},
+    {username: 'test2', password: '1234', isAdmin: false},
+  ];
 
-  constructor(private httpClient: HttpClient,
-    private router: Router) { }
+  constructor(
+      private router: Router
+  ) { }
 
-  logIn(username: string, password: string): void {
-    this.httpClient.post<{ token: string }>(this.url, {username: username.toString(), password: password.toString()})
-      .subscribe(res => {
-        if (res.token !== undefined) {
-          localStorage.setItem('token', res.token);
-          this.loggedIn = true;
-          this.router.navigate(['/home']);
-        } else {
-          this.loggedIn = false;
-        }
-      });
+  logIn(username:any, password:any) {
+    // devrait prendre un login et un password en paramètres...
+    for (let i = 0; i < this.users.length; i++ ) {
+      // tslint:disable-next-line:triple-equals
+      if (this.users[i].username == username && this.users[i].password == password) {
+        this.loggedIn = true;
+        this.currentUser[0].username = username;
+        this.currentUser[0].isAdmin = this.users[i].isAdmin;
+
+        this.router.navigate(['/home']);
+
+        return true;
+      }
+    }
+    return true;
   }
 
-  logOut(): void {
-    localStorage.removeItem('token');
-    this.loggedIn = false;
+  logOut() {
+    this.router.navigate(['/login']);
   }
 
   isAdmin() {

@@ -7,7 +7,7 @@
 					<div class="card-body">
 						<img src="../assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
 						<h4 class="mb-3 f-w-400">Connexion</h4>
-                        <form>
+                        <form (submit)="login();">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="feather icon-user"></i></span>
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <button class="btn btn-primary mb-4"
-                            (click)="login($event);">Se connecter</button>
+                            >Se connecter</button>
                             <p class="mb-2 text-muted">Mot de passe oublié ? <a href="#" class="f-w-400">Réinitialiser son mot de passe</a></p>
                             <p class="mb-0 text-muted">Pas de compte ? <a href="#" class="f-w-400">Créer un compte</a></p>
                         </form>

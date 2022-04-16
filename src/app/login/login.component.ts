@@ -1,30 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {AssignmentsService} from '../shared/assignments.service';
+import {AuthService} from '../shared/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  username!: string;
-  password!: string;
+export class LoginComponent implements OnInit, OnDestroy {
+  loggedIn = false;
 
-  constructor(private authService:AuthService,
-    private router:Router) { }
+  username = '';
+  password = '';
 
-  ngOnInit(): void {
+  constructor(private assignmentsService: AssignmentsService,
+              public authService: AuthService) {}
+
+  ngOnInit() {
+    this.isLoggedIn();
+  }
+  ngOnDestroy() {
   }
 
-  login(event: MouseEvent): void {
-    event.preventDefault();
-    if (!this.authService.loggedIn) {
-      this.authService.logIn(this.username!, this.password!);
-    } else {
-      // this.authService.logOut();
-      this.router.navigate(['/home']);
+  isLoggedIn() {
+    if (this.authService.loggedIn) {
+      this.loggedIn = true;
     }
+  }
+
+  login() {
+    this.loggedIn = this.authService.logIn(this.username, this.password) as boolean;
   }
 
 }

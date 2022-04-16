@@ -9,8 +9,7 @@ import { AuthService } from '../../shared/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  username!: string;
-  password!: string;
+  loggedIn = false;
 
   constructor(private assignmentsService: AssignmentsService,
               private authService:AuthService,
@@ -28,14 +27,11 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  login(event: MouseEvent): void {
-    event.preventDefault();
-    if (!this.authService.loggedIn) {
-      this.authService.logIn(this.username!, this.password!);
-    } else {
-      this.authService.logOut();
-      this.router.navigate(['/login']);
-    }
+  logout() {
+    this.authService.logOut();
+    this.router.navigate(['/login']);
   }
+
+  
 
 }
